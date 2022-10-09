@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <div id="flexbox">
+        {%for listing in listings%}
+            <div class="listings" >
+                <div classes="images" >
+                    <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 300px; width: 250px;" >
+                </div>
+               <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
+            </div>
+            
+        {%empty%}
+            All listings have been bought. Come back later
+        {%endfor%}
+
+    </div>
+    
+    
+    
+
+
+{% endblock %}

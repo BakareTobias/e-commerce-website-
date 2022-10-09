@@ -1,0 +1,109 @@
+body {
+    padding: 10px;
+}
+
+#flexbox{
+        display: flex;
+        flex-wrap: wrap;
+
+}
+.listings {
+    
+    padding: 15px;
+    margin: 20px;
+    border-width: 5px;
+    width:270px;
+    height: 400px;
+     
+}
+
+.images{
+    height: 350px;
+    width: 300px;
+}
+
+.floatingbox{
+    width: 800px;
+    height:400px ;
+    background-color: rgb(216, 211, 205);
+    margin-left: 100px;
+    padding: 10px;
+    border-radius: 20px;
+}
+#ListingDetails{
+    @extend .floatingbox
+}
+
+
+#image_placeholder{
+    float: left;
+    width: 350px;
+    height: 360px;
+    margin: 10px;
+}
+
+#text_placeholder{
+    padding-top: 80px;
+    float: right;
+    width: 380px;
+    height: 360px;
+    margin: 10px;
+}
+
+.text{
+    font-size: x-large;
+}
+
+#PlaceBid{
+    margin-top: 100px;
+    @extend .floatingbox;
+    width: 400px;
+    height:auto ;
+    margin-left: 300px;
+
+}
+
+.submitButton{
+    border-width: 0px;
+    border-radius: 5px;
+    margin:20px ;
+    margin-left: 50px;
+}
+
+#CommentSection{
+    margin-top: 100px;
+    @extend .floatingbox;
+    width: 1000px;
+    align-self: center;
+    height: auto;
+    
+}
+
+#commentbox{
+    height: fit-content;
+    width: 950px;
+    background-color: white;
+    align-self: center;
+    padding: 10px;
+    padding-left: 20px;
+    margin-left: 15px;
+    margin-bottom: 20px;
+
+}
+
+#LandB{
+    padding: 20px;
+    margin-left: 300px;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+}
+
+.LandB{
+    padding: 20px;
+    margin: 70px;
+    width: fit-content;
+    height: fit-content;
+    background-color:rgb(216, 211, 205) ;
+
+}

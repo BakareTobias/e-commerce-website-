@@ -1,0 +1,67 @@
+{% extends "auctions/layout.html" %}
+
+
+{% block body %}
+    <div>
+        <div id="ListingDetails">
+            <div id="image_placeholder">
+                <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 360px; width: 350px;" >
+            </div>
+            <div id="text_placeholder">
+                <div  class="text"> {{ listing.Item_Name }}  </div>
+                <div class="text" style="font-size: medium;">
+                    {{ listing.Description }} <br>
+                    Listed by <a href="{% url 'profile' listing.owner.id %}">{{listing.owner}} </a> <br>
+                    Listing price: ${{ listing.Starting_price}} <br>
+                    Top Bid: ${{ topBid }} by {{topBidowner}} <br>
+                    Category: <a href="{% url 'categories' listing.category.Category %}">{{listing.category}}</a> 
+
+
+                </div>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+        <div id="PlaceBid">
+            <div  class="text" style="text-align: center;"> Place a Bid <br> </div>
+            <form action="{% url 'PlaceBid' listing.id  %}" style="margin:10px; " method="post">
+                {%csrf_token%}
+                {{ form }} <br>
+                <input class="submitButton" type="submit" value="Submit Bid" >
+            </form>
+            <div style="margin-left:30px ; font-size: smaller;"> All bids are final. Bids are placed in Dollars($) </div>
+
+
+        </div>
+        <div id="CommentSection">
+            <h3 style="text-align: center;">Comment Section</h3>
+            {% for comment in comments%}
+            <div id="commentbox">
+                <h6>{{comment.Commenter_id}}</h6> 
+                {{comment.Comment}}
+                {%if empty%}
+                Be the first to leave a comment!
+                {%endif%}       
+            </div>
+            {% endfor %}  
+            <form action="{% url 'leaveComment' listing.id %}" method="post" style="margin-left: 15px;">
+                {% csrf_token %}
+                {{ form2 }}
+                <input type="submit" value="Send Comment" class="submitButton">
+
+            </form>
+        </div>
+        {% else %}
+        <div id="PlaceBid" style="text-align: center; padding-top: 20px;">
+            <h4>Sign-in to place bids/leave comments</h4> 
+        </div>
+            
+        {% endif %}
+    </div>
+
+
+
+
+    
+
+
+{% endblock %}
