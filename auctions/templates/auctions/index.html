@@ -2,14 +2,20 @@
 
 
 {% block body %}
-    <h2>Active Listings</h2>
+    <div id="catchyPhrase">
+        Big Featured Listing Here
+    </div> 
+    <div id="categories">
+
+    </div><hr>
     <div id="flexbox">
         {%for listing in listings%}
             <div class="listings" >
                 <div classes="images" >
-                    <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 300px; width: 250px;" >
+                    <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
+                    
                 </div>
-               <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
+                <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
             </div>
             
         {%empty%}

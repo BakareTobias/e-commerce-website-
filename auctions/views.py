@@ -70,7 +70,7 @@ def register(request):
         return render(request, "auctions/register.html")
 
 class CommentForm(forms.Form):
-        Leave_a_comment = forms.CharField(widget=forms.Textarea(attrs={'label':'g', 'style': 'width:905px; margin-bottom:20px;', 'class': 'form-control', 'height':'100px'}))
+        Leave_a_comment = forms.CharField(widget=forms.TextInput(attrs={'label':'g', 'style': 'width:905px; margin-bottom:20px;', 'class': 'form-control', 'height':'100px'}))
 
 
 def listing_details(request,listing):
@@ -84,7 +84,6 @@ def listing_details(request,listing):
 
     class BidForm(forms.Form):
         Bid = forms.IntegerField(label='Enter an amount',min_value=top_bid+1)
-        WatchList = forms.BooleanField(label='Add to Watch List',required=False)
     
     try:
         comments =  Comment.objects.filter(item_id=listing).order_by('pk')

@@ -5,42 +5,55 @@
     <div>
         <div id="ListingDetails">
             <div id="image_placeholder">
-                <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 360px; width: 350px;" >
+                <img src="/media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 500px; width: 500px;" >
             </div>
             <div id="text_placeholder">
-                <div  class="text"> {{ listing.Item_Name }}  </div>
-                <div class="text" style="font-size: medium;">
-                    {{ listing.Description }} <br>
-                    Listed by <a href="{% url 'profile' listing.owner.id %}">{{listing.owner}} </a> <br>
-                    Listing price: ${{ listing.Starting_price}} <br>
-                    Top Bid: ${{ topBid }} by {{topBidowner}} <br>
-                    Category: <a href="{% url 'categories' listing.category.Category %}">{{listing.category}}</a> 
+                <div  id="productTitle"> {{ listing.Item_Name }}  </div>
+                <h6 id="listedBy">Listed by <a id="listedBy" href="{% url 'profile' listing.owner.id %}">{{listing.owner}} </a> </h6>
+                <hr> 
+                <div class="text" >
+                    {{ listing.Description }} 
+                    <hr>
+                    <div id="SP"> <u>Starting price</u>  <br> <h5 class="price"> ${{ listing.Starting_price}} </h5> 
+                    </div>
+                    <div id="TB"> <u>Top Bid</u> <br> <h5 class="price">${{ topBid }}</h5>  <!-- by {{topBidowner}} --> 
+                    </div>
+                    <hr>
+                    <div id="PlaceBid">
+                        <div  class="text" style="text-align: center;"> Place a Bid <br> </div>
+                        <form action="{% url 'PlaceBid' listing.id  %}" style="margin:10px; " method="post">
+                            {%csrf_token%}
+                            {{ form }} <br>
+                            <input class="submitButton" type="submit" value="Place Bid" >
+                        </form>
+                        <div style="margin-left:30px ; font-size: smaller;"> All bids are final. Bids are placed in Dollars($) </div>
+            
+            
+                    </div>
 
 
                 </div>
             </div>
         </div>
-        {% if user.is_authenticated %}
-        <div id="PlaceBid">
-            <div  class="text" style="text-align: center;"> Place a Bid <br> </div>
-            <form action="{% url 'PlaceBid' listing.id  %}" style="margin:10px; " method="post">
-                {%csrf_token%}
-                {{ form }} <br>
-                <input class="submitButton" type="submit" value="Submit Bid" >
-            </form>
-            <div style="margin-left:30px ; font-size: smaller;"> All bids are final. Bids are placed in Dollars($) </div>
-
+        <div id="Categories">
+            Other listings in: <a href="{% url 'categories' listing.category.Category %}">{{listing.category}}</a> 
 
         </div>
+        <hr>
+        {% if user.is_authenticated %}
+        
         <div id="CommentSection">
-            <h3 style="text-align: center;">Comment Section</h3>
+            <h3 >Comment Section</h3>
             {% for comment in comments%}
             <div id="commentbox">
-                <h6>{{comment.Commenter_id}}</h6> 
-                {{comment.Comment}}
-                {%if empty%}
-                Be the first to leave a comment!
-                {%endif%}       
+                <div id="userid">
+                    <h6>{{comment.Commenter_id}}</h6> 
+                </div>
+                <div id="userComment">
+                    {{comment.Comment}}
+                </div>
+                
+                    
             </div>
             {% endfor %}  
             <form action="{% url 'leaveComment' listing.id %}" method="post" style="margin-left: 15px;">
