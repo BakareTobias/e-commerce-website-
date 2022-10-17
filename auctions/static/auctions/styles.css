@@ -111,7 +111,7 @@ a {
   padding: 40px;
 }
 
-.text, #Categories, #PlaceBid, #listedBy, #productTitle {
+.text, .xxx, #Categories, #PlaceBid, #listedBy, #productTitle {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -152,6 +152,11 @@ a {
   color: white;
 }
 
+#Watchlist {
+  background-color: #74d7ec;
+  border-width: 0px;
+}
+
 #Categories {
   align-items: center;
   font-size: 30px;
@@ -187,9 +192,22 @@ a {
   margin-right: 30px;
 }
 
+#hello {
+  margin: 20px;
+}
+
+#links {
+  height: 200px;
+  background-color: #ebebeb;
+}
+
+#linksections {
+  color: #606060;
+}
+
 #LandB {
   padding: 20px;
-  margin-left: 300px;
+  margin-left: 20px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -208,5 +226,13 @@ a {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  background-color: rgb(216, 211, 205);
+}
+
+.xxx {
+  margin: 15px;
+}
+
+#createListingform {
+  margin: 20px;
+  width: 500px;
 }/*# sourceMappingURL=styles.css.map */

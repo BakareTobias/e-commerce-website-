@@ -162,7 +162,12 @@ a{
     background-color: $freshBlue;
     color: white;
 }
+#Watchlist{
+    background-color: $freshBlue;
+    border-width: 0px;
+  
 
+}
 #Categories{
     align-items: center;
     @extend .text;
@@ -193,15 +198,28 @@ a{
 
 }
 
+
 #userid{
     width: 20ch;
     float: left;
     margin-right: 30px;
 }
 
+#hello{
+    margin: 20px;
+}
+
+#links{
+    height: 200px;
+    background-color: $Spacegray;
+}
+
+#linksections{
+    color: $TextGray;
+}
 #LandB{
     padding: 20px;
-    margin-left: 300px;
+    margin-left: 20px;
     width: fit-content;
     height: fit-content;
     border-radius: 20px;
@@ -212,6 +230,15 @@ a{
     margin: 70px;
     width: fit-content;
     height: fit-content;
-    background-color:rgb(216, 211, 205) ;
 
+}
+
+.xxx{
+    @extend .text;
+    margin: 15px;
+}
+
+#createListingform{
+    margin: 20px;
+    width: 500px;
 }

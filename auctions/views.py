@@ -70,7 +70,7 @@ def register(request):
         return render(request, "auctions/register.html")
 
 class CommentForm(forms.Form):
-        Leave_a_comment = forms.CharField(widget=forms.TextInput(attrs={'label':'g', 'style': 'width:905px; margin-bottom:20px;', 'class': 'form-control', 'height':'100px'}))
+        Leave_a_comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'What are your thoughts?','class': 'form-control', 'style': 'width:905px; margin-bottom:20px;',  'height':'100px'}))
 
 
 def listing_details(request,listing):
@@ -190,3 +190,15 @@ def createListing(request):
     return render(request, "auctions/createListing.html",{
         "form":ListingForm()
     })
+
+
+
+def watchlist_add(request,listing_id):
+    watchlist_item=WatchList()
+    watchlist_item.item_id=Listing.objects.get(id=listing_id)
+    watchlist_item.owner= User.objects.get(id=request.user.id)
+    watchlist_item.save()
+
+    return HttpResponseRedirect(reverse("listing",args=(watchlist_item.item_id.pk,)))
+
+

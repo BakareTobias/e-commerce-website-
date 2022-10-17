@@ -2,17 +2,27 @@
 
 
 {% block body %}
-<h3>{{buser.get_full_name}}</h3> 
+<h3 id="hello">Hello {{buser.first_name}},</h3> 
 <!-- User id: 000{{user.id}} -->
+
+<div id="links">
+    <hr id="linksections">
+</div>
 
 <div id="LandB">
     
     <div class="LandB" style="float: left;">
-        <h4>Listings</h4>
+        <h4>My Listings</h4>
         {% for listing in listings %}
-        <ul>
-            <li> {{listing}} Close Listing? <br></li>
-        </ul>      
+        <div class="listings" >
+            <div classes="images" >
+                <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
+                
+            </div>
+            <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
+        </div>
+        
+          
         {% empty %}
          No Listings placed
           

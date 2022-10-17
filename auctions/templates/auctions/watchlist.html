@@ -1,9 +1,9 @@
-{% extends "auctions/layout.html" %}
+{% extends "auctions/layout.html" %}pk
 
 {% block body %}
-    <h3>My Watchlist</h3>
+    <h3 class="xxx">My Watchlist</h3>
     {%for listing in watchlist%}
-        <a href="{% url 'listing' listing.id %}">{{ listing }}</a> <br>
+        <a href="{% url 'listing' listing.item_id.pk %}" id="productTitle" style="margin: 20px;">{{ listing }}</a> <br>
 
     {%empty%}
         Your watchlist is empty. You should add some items 

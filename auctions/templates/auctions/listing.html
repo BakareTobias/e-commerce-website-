@@ -9,7 +9,7 @@
             </div>
             <div id="text_placeholder">
                 <div  id="productTitle"> {{ listing.Item_Name }}  </div>
-                <h6 id="listedBy">Listed by <a id="listedBy" href="{% url 'profile' listing.owner.id %}">{{listing.owner}} </a> </h6>
+                <h6 id="listedBy">Listed by {{listing.owner}}<a id="listedBy" href="{% url 'profile' listing.owner.id %}"> </a> </h6>
                 <hr> 
                 <div class="text" >
                     {{ listing.Description }} 
@@ -24,8 +24,16 @@
                         <form action="{% url 'PlaceBid' listing.id  %}" style="margin:10px; " method="post">
                             {%csrf_token%}
                             {{ form }} <br>
+                            
                             <input class="submitButton" type="submit" value="Place Bid" >
                         </form>
+                        {% if watchlisted %}
+                        <button id="Watchlist"> Added to Watchlist</button>
+                        {%else%}
+                        <button id="Watchlist">
+                            <a href="{% url 'watchlist_add' listing.id%}">Add to Watchlist?</a>
+                        </button>
+                        {%endif%}
                         <div style="margin-left:30px ; font-size: smaller;"> All bids are final. Bids are placed in Dollars($) </div>
             
             
@@ -43,6 +51,12 @@
         {% if user.is_authenticated %}
         
         <div id="CommentSection">
+            <form action="{% url 'leaveComment' listing.id %}" method="post" style="margin-left: 15px;">
+                {% csrf_token %}
+                {{ form2 }}
+                <input type="submit" value="Send Comment" class="submitButton  " style="margin-left: 780px;">
+
+            </form>
             <h3 >Comment Section</h3>
             {% for comment in comments%}
             <div id="commentbox">
@@ -55,13 +69,10 @@
                 
                     
             </div>
+            {%empty%}
+            <p>Wow, such empty. Be the first to comment! </p>
             {% endfor %}  
-            <form action="{% url 'leaveComment' listing.id %}" method="post" style="margin-left: 15px;">
-                {% csrf_token %}
-                {{ form2 }}
-                <input type="submit" value="Send Comment" class="submitButton">
-
-            </form>
+            
         </div>
         {% else %}
         <div id="PlaceBid" style="text-align: center; padding-top: 20px;">
