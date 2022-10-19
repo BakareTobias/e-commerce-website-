@@ -217,12 +217,9 @@ a{
 #linksections{
     color: $TextGray;
 }
-#LandB{
-    padding: 20px;
-    margin-left: 20px;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 20px;
+#MyListings{
+    @extend .text;
+    margin: 20px;
 }
 
 .LandB{

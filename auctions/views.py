@@ -14,7 +14,7 @@ from .models import Bid, Category, Listing, User,Comment, WatchList
 
 def index(request):
     return render(request, "auctions/index.html",{
-        "listings":Listing.objects.all()
+        "listings":Listing.objects.filter(Auction_closed=False)
     })
 
 
@@ -132,10 +132,13 @@ def leaveComment(request,listing,):
 def profile(request,id):
     user = User.objects.get(pk=id)
     listings= Listing.objects.filter(owner=user.id)
+    openListings = listings.filter(Auction_closed=False)
+    closedListings = listings.filter(Auction_closed=True)
     bids = Bid.objects.filter(bidder_id=user.id)
     return render(request, "auctions/profile.html",{
         "bids":bids,
-        "listings":listings,
+        "openlistings":openListings,
+        "closedlistings":closedListings,
         "buser":user
     })
 
@@ -201,4 +204,12 @@ def watchlist_add(request,listing_id):
 
     return HttpResponseRedirect(reverse("listing",args=(watchlist_item.item_id.pk,)))
 
+
+
+def closeAuction(request,listing_id):
+    listing= Listing.objects.get(pk=listing_id)
+    listing.Auction_closed=True
+    listing.save()
+
+    return HttpResponseRedirect(reverse("profile",args=(listing.owner.id,)))
 

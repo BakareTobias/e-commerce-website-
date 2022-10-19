@@ -2,7 +2,8 @@
 
 
 {% block body %}
-<h3 id="hello">Hello {{buser.first_name}},</h3> 
+<h4 class="xxx"><u>My Account</u> </h4>
+<h3 class="xxx">Hello {{buser.first_name}},</h3> 
 <!-- User id: 000{{user.id}} -->
 
 <div id="links">
@@ -11,22 +12,41 @@
 
 <div id="LandB">
     
-    <div class="LandB" style="float: left;">
-        <h4>My Listings</h4>
-        {% for listing in listings %}
+    <div id="MyListings" >
+        <h4 >Open Listings</h4>
+        {% for listing in openlistings %}
         <div class="listings" >
             <div classes="images" >
-                <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
+                <img src="/media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
                 
             </div>
-            <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
-        </div>
-        
+            <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} <br> <!-- Currently bidding at {{listing.Highest_Bid}}  -->
+         <button class="submitButton" style="margin-left: 0px;"><a href="{% url 'closeAuction' listing.id %}">Close Auction</a></button>
+        </div>      
           
         {% empty %}
-         No Listings placed
+         You have no open Listings 
           
         {%endfor%}
+
+    </div>
+
+    <div id="MyListings" >
+        <h4 >Closed Listings</h4>
+        {% for listing in closedlistings %}
+        <div class="listings" >
+            <div classes="images" >
+                <img src="/media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
+                
+            </div>
+            <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} <br> <!-- Currently bidding at {{listing.Highest_Bid}}  -->
+        </div>      
+          
+        {% empty %}
+         You have no closed Listings 
+          
+        {%endfor%}
+        
     </div>
    <!--  <div class="LandB" style="float: right;">
         <h4> Bids</h4>
