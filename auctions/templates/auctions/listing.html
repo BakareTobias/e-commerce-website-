@@ -16,9 +16,10 @@
                     <hr>
                     <div id="SP"> <u>Starting price</u>  <br> <h5 class="price"> ${{ listing.Starting_price}} </h5> 
                     </div>
-                    <div id="TB"> <u>Top Bid</u> <br> <h5 class="price">${{ topBid }}</h5>  <!-- by {{topBidowner}} --> 
+                    <div id="TB"> <u>Top Bid</u> <br> <h5 class="price">${{ topBid }}  by {{topBidowner}}</h5>   
                     </div>
                     <hr>
+                    {% if not closed %}
                     <div id="PlaceBid">
                         <div  class="text" style="text-align: center;"> Place a Bid <br> </div>
                         <form action="{% url 'PlaceBid' listing.id  %}" style="margin:10px; " method="post">
@@ -38,6 +39,9 @@
             
             
                     </div>
+                    {%else%}
+                    <h4> This listing is closed for auctioning <br> Item won by {{topBidowner}} for ${{ topBid }}  </h4>
+                    {%endif%}
 
 
                 </div>

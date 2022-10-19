@@ -75,6 +75,7 @@ class CommentForm(forms.Form):
 
 def listing_details(request,listing):
     list1ing= Listing.objects.get(pk=listing)
+    closed = list1ing.Auction_closed
     try:
         top_bid =  Bid.objects.filter(item_id=listing).order_by('-Bid_placed').first().Bid_placed
         top_bid_owner =  Bid.objects.filter(item_id=listing).order_by('-Bid_placed').first().bidder_id
@@ -97,7 +98,8 @@ def listing_details(request,listing):
         "topBid":top_bid,
         "topBidowner":top_bid_owner,
         "form2":CommentForm(),
-        "comments":comments
+        "comments":comments,
+        "closed":closed
 })
 
 def place_bid(request,listing,):
@@ -135,6 +137,7 @@ def profile(request,id):
     openListings = listings.filter(Auction_closed=False)
     closedListings = listings.filter(Auction_closed=True)
     bids = Bid.objects.filter(bidder_id=user.id)
+
     return render(request, "auctions/profile.html",{
         "bids":bids,
         "openlistings":openListings,
