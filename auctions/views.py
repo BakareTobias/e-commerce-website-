@@ -47,6 +47,8 @@ def register(request):
     if request.method == "POST":
         username = request.POST["username"]
         email = request.POST["email"]
+        first_name = request.POST["firstname"]
+        last_name = request.POST["lastname"]
 
         # Ensure password matches confirmation
         password = request.POST["password"]
@@ -58,7 +60,11 @@ def register(request):
 
         # Attempt to create new user
         try:
-            user = User.objects.create_user(username, email, password)
+            user = User()
+            user.username = username
+            user.email = email
+            user.first_name = first_name
+            user.last_name = last_name
             user.save()
         except IntegrityError:
             return render(request, "auctions/register.html", {
