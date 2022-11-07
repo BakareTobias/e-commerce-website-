@@ -14,10 +14,16 @@
                 <div class="text" >
                     {{ listing.Description }} 
                     <hr>
-                    <div id="SP"> <u>Starting price</u>  <br> <h5 class="price"> ${{ listing.Starting_price}} </h5> 
+                    <div id="SP" > <u>Starting price</u>  <br> <h5 class="price"> ${{ listing.Starting_price}} </h5> 
                     </div>
-                    <div id="TB"> <u>Top Bid</u> <br> <h5 class="price">${{ topBid }}  by {{topBidowner}}</h5>   
+                    
+                    <div id="TB"  > 
+                        <u>Top Bid</u> <br>
+                        <div style="float: left;"><h5 class="price">${{ topBid }} </h5></div>
+                        <div style="float:left; font-size: small; text-align: end; margin-top: 15px; margin-left: 5px;"> by {{topBidowner}}</div>    
+                    
                     </div>
+                    
                     <hr>
                     {% if not closed %}
                     <div id="PlaceBid">
