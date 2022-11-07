@@ -28,13 +28,10 @@
                             
                             <input class="submitButton" type="submit" value="Place Bid" >
                         </form>
-                        {% if watchlisted %}
-                        <button id="Watchlist"> Added to Watchlist</button>
-                        {%else%}
-                        <button id="Watchlist">
-                            <a href="{% url 'watchlist_add' listing.id%}">Add to Watchlist?</a>
-                        </button>
-                        {%endif%}
+                        
+                        
+                        <button id="Watchlist">Add to Watchlist</button>
+                        
                         <div style="margin-left:30px ; font-size: smaller;"> All bids are final. Bids are placed in Dollars($) </div>
             
             
