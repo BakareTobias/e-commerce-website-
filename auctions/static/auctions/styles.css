@@ -22,29 +22,31 @@
   float: right;
 }
 
-a {
+.nav-link {
   color: #606060;
+}
+
+.nav-link:hover {
+  color: white;
 }
 
 .nav-item {
   border-left: 0.5px solid black;
   height: 38px;
-  background: linear-gradient(#74d7ec 0 0) var(--p, 0)/var(--p, 0) no-repeat;
-  transition: 0.4s, background-position 0s;
+  /*  background: linear-gradient($freshBlue 0 0) var(--p, 0) / var(--p, 0) no-repeat;
+   transition: .4s, background-position 0s; */
 }
 
 .nav-item:hover {
-  --p: 100%;
-  color: #fff;
+  background-color: #74d7ec;
 }
 
 #catchyPhrase {
-  height: 300px;
-  background-color: #ebebeb;
+  height: auto;
   width: 100%;
-  text-align: center;
-  font-size: 40px;
-  padding-top: 80px;
+  /*  text-align: center;
+   font-size: 40px;
+   padding-top: 80px; */
 }
 
 #flexbox {
@@ -111,7 +113,7 @@ a {
   padding: 40px;
 }
 
-.text, .xxx, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle {
+.text, p, #k, .xxx, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -229,4 +231,44 @@ a {
 #createListingform {
   margin: 20px;
   width: 500px;
+}
+
+#footer {
+  height: 300px;
+  background-color: #74d7ec;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
+}
+
+.footerbox, #sign, #About, #contactMe {
+  float: left;
+  margin: 20px;
+  height: 160px;
+  padding: 5px;
+}
+
+#contactMe {
+  width: 30%;
+}
+
+#About {
+  width: 30%;
+  /*  background-color: #74d7ec; */
+}
+
+#sign {
+  float: right;
+  width: 30%;
+}
+
+#k {
+  font-size: smaller;
+  font-weight: bold;
+  width: 100%;
+  float: left;
+  position: relative;
+  height: 20px;
+  text-align: center;
 }/*# sourceMappingURL=styles.css.map */

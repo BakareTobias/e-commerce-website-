@@ -6,22 +6,7 @@
         <title>{% block title %}Auctions{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
-        <script>
-            document.addEventListener('DOMContentLoaded',function () {
-                const button =document.querySelector('#Watchlist');
-                button.onclick = function() {
-                    if (button.innerHTML === 'Add to Watchlist'){
-                        button.innerHTML = 'Remove from Watchlist'
-                        alert('Item has been added to Watchlist')
-                    } else{
-                        button.innerHTML = 'Add to Watchlist'
-                        alert('Item has been removed from Watchlist')
-
-                    }
-                    
-                }
-            })
-        </script>
+        <script src="{% static 'auctions/watchlist.js' %}"></script>
     </head>
     <body>
         <div>
@@ -66,5 +51,44 @@
         <br><hr style="margin-bottom: 0px; ">
         {% block body %}
         {% endblock %}
+
+        <div id="footer">
+            
+            <div>
+                <div id="contactMe">
+                    <h4> Contact Me</h4> 
+                    <p> Any questions? Interested in working with me? <br>
+                        Send a message to: 08120140153 <br>
+                        Send an e-mail to: bakaretobiloba13@gmail.com
+                        
+                    </p>
+    
+                </div>
+                <div id="About">
+                    <h4>About this Project</h4>
+                    <p>I built this website as a project for CS50's web programming course(top course. <br> Would definitely recommend for anyone interested in learning web dev.) </p>
+    
+                </div>
+                <div id="sign">
+                    <h4> Languages Used</h4>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Python(Django)</li>
+                        <li>Vanilla Js</li>
+                    </ul>
+                    
+    
+                </div>  
+                
+            </div>
+            
+            <div id="k">
+                <hr>
+                <p> Bakare Oluwatobiloba    .    2022 Nov</p>
+                
+            </div>
+            
+        </div>
     </body>
 </html>
