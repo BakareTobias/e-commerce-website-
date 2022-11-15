@@ -82,6 +82,7 @@ class CommentForm(forms.Form):
 def listing_details(request,listing):
     list1ing= Listing.objects.get(pk=listing)
     closed = list1ing.Auction_closed
+    user_watchlist = WatchList.objects.filter(owner = request.user.pk)
     try:
         top_bid =  Bid.objects.filter(item_id=listing).order_by('-Bid_placed').first().Bid_placed
         top_bid_owner =  Bid.objects.filter(item_id=listing).order_by('-Bid_placed').first().bidder_id
@@ -105,7 +106,8 @@ def listing_details(request,listing):
         "topBidowner":top_bid_owner,
         "form2":CommentForm(),
         "comments":comments,
-        "closed":closed
+        "closed":closed,
+        "watchlist": user_watchlist
 })
 
 def place_bid(request,listing,):
@@ -187,7 +189,6 @@ class ListingForm(forms.Form):
     Starting_Price = forms.IntegerField()
 
 
-
 def createListing(request):
     if request.method == "POST":
         l = Listing()
@@ -203,13 +204,18 @@ def createListing(request):
         "form":ListingForm()
     })
 
-
-
 def watchlist_add(request,listing_id):
     watchlist_item=WatchList()
     watchlist_item.item_id=Listing.objects.get(id=listing_id)
     watchlist_item.owner= User.objects.get(id=request.user.id)
     watchlist_item.save()
+
+    return HttpResponseRedirect(reverse("listing",args=(watchlist_item.item_id.pk,)))
+
+def watchlist_remove(request,listing_id):
+    watchlist_item=WatchList.objects.get(id=listing_id)
+    watchlist_item.delete()
+    
 
     return HttpResponseRedirect(reverse("listing",args=(watchlist_item.item_id.pk,)))
 

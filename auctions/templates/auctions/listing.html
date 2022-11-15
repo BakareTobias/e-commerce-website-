@@ -2,6 +2,11 @@
 
 
 {% block body %}
+ <script>
+    var listing_id ="{{listing.id}}";
+    var listing_name = "{{listing.Item_Name}}"
+    var watchlist = "{{watchlist}}"
+ </script>
     <div>
         <div id="ListingDetails">
             <div id="image_placeholder">
@@ -35,9 +40,16 @@
                             <input class="submitButton" type="submit" value="Place Bid" >
                         </form>
                         
-                        
-                        <button id="Watchlist">Add to Watchlist</button>
-                        
+                         
+                        <button id="Watchlist">
+                           <!--  {% if listing.Item_Name in watchlist%}
+                                Remove from Watchlist
+                            {%else%} 
+                                Add to Watchlist
+                            {%endif%}  -->
+                        </button>
+                        <!-- <h1>{{listing.Item_Name}} <br>{{watchlist}}</h1>
+                         -->
                         
                         <div style="margin-left:30px ; font-size: smaller;"> All bids are final. Bids are placed in Dollars($) </div>
             

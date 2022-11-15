@@ -1,26 +1,22 @@
-if (!localStorage.getItem('Watchlist')){
-    localStorage.setItem('Watchlist',[]);
-}        
-
-
-
-
 document.addEventListener('DOMContentLoaded',function () {
-    let Watchlist = localStorage.getItem('Watchlist');
+    const button= document.querySelector('#Watchlist')
 
-    const button =document.querySelector('#Watchlist');
+    if (watchlist.includes(listing_name)){
+        button.innerHTML = 'Remove from Watchlist'
+    } else{
+        button.innerHTML = 'Add to Watchlist'
+    }
+
     button.onclick = function() {
         if (button.innerHTML === 'Add to Watchlist'){
-            /* Watchlist.push()
-            localStorage.setItem('Watchlist',Watchlist) */
             button.innerHTML = 'Remove from Watchlist'
-            alert('Item has been added to Watchlist')
+            window.location.replace(`http://127.0.0.1:8000/watchlist_add/${listing_id}`);
+            alert('Item has been added to Watchlist');
 
         } else{
             button.innerHTML = 'Add to Watchlist'
-            /* Watchlist.pop()
-            localStorage.setItem('Watchlist',Watchlist); */
-            alert('Item has been removed from Watchlist')
+            window.location.replace(`http://127.0.0.1:8000/watchlist_remove/${listing_id}`);
+            alert('Item has been removed from Watchlist');
 
         }
         
