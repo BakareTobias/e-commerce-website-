@@ -2,6 +2,10 @@ $freshBlue: #74d7ec;
 $TextGray :#606060;
 $Spacegray: #ebebeb;
 $black: #000000;
+p{
+    @extend .text;
+}
+
 #logo{
     padding: 5px;
     color: $freshBlue;
@@ -60,10 +64,11 @@ $black: #000000;
 }
 
 #flexbox{
-    height: 500px; 
+    display: block;
     margin: 15px;
     display: flex;
     flex-wrap: wrap;
+    
 }
 .listings {
     padding: 15px;
@@ -245,6 +250,7 @@ $black: #000000;
 }
 
 #footer{
+    
     height: 300px;
     background-color:$freshBlue;
     padding-top: 30px;

@@ -50,7 +50,7 @@
 }
 
 #flexbox {
-  height: 500px;
+  display: block;
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -113,7 +113,7 @@
   padding: 40px;
 }
 
-.text, p, #k, .xxx, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle {
+.text, #k, .xxx, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle, p {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 

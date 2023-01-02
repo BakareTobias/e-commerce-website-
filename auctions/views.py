@@ -195,6 +195,7 @@ def createListing(request):
         l.Item_Name = request.POST['Item_Name']
         l.owner =  User.objects.get(id=request.user.id) 
         l.image = request.POST["Image"]
+        
         l.caption = request.POST['Alt_Text']
         l.category = Category.objects.get(Category= request.POST['Category'])
         l.Description = request.POST['Description']

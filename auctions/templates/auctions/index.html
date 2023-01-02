@@ -2,30 +2,32 @@
 
 
 {% block body %}
-    <div id="catchyPhrase">
-        <img src="media\images\auction-banner.gif" alt="vvvv" style="height:250px; width:100%;">
-    </div> 
-    <div id="categories">
+    <div>
+        <div id="catchyPhrase">
+            <img src="media\images\auction-banner.gif" alt="vvvv" style="height:250px; width:100%;">
+        </div> 
+        <div id="categories">
 
-    </div><hr>
-    <div id="flexbox">
-        {%for listing in listings%}
-            <div class="listings" >
-                <div classes="images" >
-                    <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
-                    
+        </div><hr>
+        
+        <div id="flexbox">
+            {%for listing in listings%}
+                <div class="listings" >
+                    <div classes="images" >
+                        <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
+                        
+                    </div>
+                    <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
                 </div>
-                <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
-            </div>
-            
-        {%empty%}
-            All listings have been bought. Come back later
-        {%endfor%}
+                
+            {%empty%}
+                All listings have been bought. Come back later
+            {%endfor%}
 
+        </div>
+        
+    
     </div>
-    
-    
-    
 
 
 {% endblock %}

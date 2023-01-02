@@ -14,6 +14,7 @@
     
     <div id="MyListings" >
         <h4 >Open Listings</h4>
+        <p>Your listings still open for bidding will show here</p>
         {% for listing in openlistings %}
         <div class="listings" >
             <div classes="images" >
@@ -33,6 +34,7 @@
 
     <div id="MyListings" >
         <h4 >Closed Listings</h4>
+        <p>Your  listings no longer available for bidding </p>
         {% for listing in closedlistings %}
         <div class="listings" >
             <div classes="images" >
@@ -49,6 +51,13 @@
         
     </div>
    
+
+    <div id="MyListings">
+        
+        <h4>Won Listings</h4>
+        <p>Listings you have won will show here </p>
+        You have no closed listings
+    </div>
 </div>
      
 
