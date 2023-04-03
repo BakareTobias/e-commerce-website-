@@ -1,21 +1,17 @@
-#logo {
-  padding: 5px;
-  color: #74d7ec;
-  font-weight: bold;
-  float: left;
-  --h: 1.2em; /* the height */
-  line-height: var(--h);
-  color: rgba(0, 0, 0, 0);
-  text-shadow: 0 var(--_t, var(--h)) #74d7ec, 0 0 var(--_c, #74d7ec);
-  background: linear-gradient(#ebebeb 0 0) bottom/100% var(--_d, 0) no-repeat;
-  overflow: hidden;
-  transition: 0.3s;
+.text, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle, #category_each, #categories, #form_body, #form_header, #watchlist_header, #profile_header, #name_at_bottom_of_website, p, a, h4 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-#logo:hover {
-  --_d: 100%;
-  --_t: 0;
-  --_c: #0000;
+div h4 {
+  font-weight: bold;
+  font-size: 600;
+}
+
+/* NAVBAR */
+#logo {
+  height: 40px;
+  width: 40px;
+  margin: 10px;
 }
 
 #navBar {
@@ -24,33 +20,136 @@
 
 .nav-link {
   color: #606060;
+  font-weight: bold;
 }
 
 .nav-link:hover {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .nav-item {
-  border-left: 0.5px solid black;
-  height: 38px;
-  /*  background: linear-gradient($freshBlue 0 0) var(--p, 0) / var(--p, 0) no-repeat;
-   transition: .4s, background-position 0s; */
+  height: -moz-max-content;
+  height: max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-top: 10px;
+  font-size: small;
+  border-radius: 10px;
+  padding: 2px;
 }
 
 .nav-item:hover {
-  background-color: #74d7ec;
+  background-color: rgba(112, 212, 235, 0.5882352941);
 }
 
-#catchyPhrase {
-  height: auto;
+/* CAROUSEL IMAGES */
+#carousel {
+  margin-left: 30px;
+  margin-bottom: 150px;
+  height: 450px;
+  text-align: center;
+}
+
+.carousel_container {
+  height: 400px;
+  float: left;
+  width: 30%;
+  margin: 10px;
+}
+
+#carousel_image {
+  height: 340px;
+  width: 270px;
+}
+
+/* FOOTER */
+#footer {
   width: 100%;
-  /*  text-align: center;
-   font-size: 40px;
-   padding-top: 80px; */
+  float: left;
+  height: 300px;
+  background-color: #74d6ec;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
 }
 
-#flexbox {
-  display: block;
+.footertext {
+  float: left;
+  width: 30%;
+  padding: 5px;
+  margin: 5px;
+}
+
+#name_at_bottom_of_website {
+  font-size: smaller;
+  font-weight: bold;
+  width: 100%;
+  float: left;
+  position: relative;
+  height: 20px;
+  text-align: center;
+}
+
+#back_to_top {
+  height: 35px;
+  width: 35px;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+/* CREATELISTING FORM */
+#form_header, #watchlist_header, #profile_header {
+  padding: 10px;
+  background-color: #74d6ec;
+}
+
+#form_body {
+  background-color: rgba(96, 96, 96, 0.0901960784);
+  padding: 10px;
+}
+
+.form_label {
+  float: left;
+}
+
+.form_field {
+  margin-left: 100px;
+}
+
+#form_field_container {
+  width: 500px;
+  height: 70px;
+  margin: 10px;
+}
+
+.submitButton {
+  border-width: 0px;
+  margin: 20px;
+  margin-left: 250px;
+  background-color: #74d6ec;
+  color: rgb(0, 0, 0);
+}
+
+/* INDEX PAGE */
+#categories {
+  font-size: 40px;
+  padding: 15px;
+  width: 100%;
+  height: 200px;
+  background-color: #74d6ec;
+  flex-wrap: wrap;
+}
+
+#category_each {
+  border-radius: 3px;
+  width: 100px;
+  font-size: large;
+  margin-left: 20px;
+  color: #000000;
+}
+
+#products {
+  float: left;
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -61,14 +160,17 @@
   margin: 20px;
   border-width: 5px;
   width: 270px;
-  height: 300px;
+  height: 350px;
   border-radius: 10px;
 }
 
 .listings:hover {
-  box-shadow: 0 0 20px #74d7ec;
-  /*     box-shadow: 0 0 50px black;
-   */
+  box-shadow: 0 0 20px #74d6ec;
+}
+
+#product_image {
+  height: 200px;
+  width: 200px;
 }
 
 .images {
@@ -77,7 +179,7 @@
   background-color: #74d7ec;
 }
 
-/* LISTING PAGE STARTS HERE */
+/* INDIVIDUAL LISTING */
 .floatingbox {
   width: 800px;
   height: 400px;
@@ -113,10 +215,6 @@
   padding: 40px;
 }
 
-.text, #k, .xxx, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle, p {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
 #productTitle {
   font-size: 35px;
 }
@@ -125,14 +223,14 @@
   color: #000000;
 }
 
-#SP {
+#starting_price {
   width: 50%;
   float: left;
   margin-right: 0px;
   text-align: center;
 }
 
-#TB {
+#top_bid {
   width: 50%;
   float: right;
   text-align: start;
@@ -148,24 +246,15 @@
   margin-left: 0;
 }
 
-.submitButton {
-  border-width: 0px;
-  margin: 20px;
-  margin-left: 250px;
-  background-color: #74d7ec;
-  color: white;
-}
-
 #Watchlist {
-  background-color: #74d7ec;
+  background-color: #74d6ec;
   border-width: 0px;
+  display: none;
 }
 
 #Categories {
-  align-items: center;
+  margin: 20px;
   font-size: 30px;
-  margin: 40px;
-  margin-bottom: 0px;
   height: 200px;
 }
 
@@ -178,7 +267,6 @@
 }
 
 #commentbox {
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 950px;
@@ -196,10 +284,7 @@
   margin-right: 30px;
 }
 
-#hello {
-  margin: 20px;
-}
-
+/* PROFIL/ACCOUNTS PAGE */
 #links {
   height: 200px;
   background-color: #ebebeb;
@@ -216,59 +301,10 @@
 .LandB {
   padding: 20px;
   margin: 70px;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
 }
 
-.xxx {
-  margin: 15px;
-}
-
-#createListingform {
-  margin: 20px;
-  width: 500px;
-}
-
-#footer {
-  height: 300px;
-  background-color: #74d7ec;
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 5px;
-}
-
-.footerbox, #sign, #About, #contactMe {
-  float: left;
-  margin: 20px;
-  height: 160px;
-  padding: 5px;
-}
-
-#contactMe {
-  width: 30%;
-}
-
-#About {
-  width: 30%;
-  /*  background-color: #74d7ec; */
-}
-
-#sign {
-  float: right;
-  width: 30%;
-}
-
-#k {
-  font-size: smaller;
-  font-weight: bold;
-  width: 100%;
-  float: left;
-  position: relative;
-  height: 20px;
-  text-align: center;
-}/*# sourceMappingURL=styles.css.map */
+/* WATCHLIST PAGE *//*# sourceMappingURL=styles.css.map */

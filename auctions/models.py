@@ -45,7 +45,7 @@ class Comment(models.Model):
         return f" Comment {self.pk} by {self.Commenter_id} on {self.item_id}"
 
 class WatchList(models.Model):
-    item_id = models.ForeignKey(Listing,on_delete=models.CASCADE, related_name="watchlist_item",unique=True)
+    item_id = models.OneToOneField(Listing,on_delete=models.CASCADE, related_name="watchlist_item",unique=True)
     owner = models.ForeignKey(User,on_delete=models.CASCADE,related_name="watchlist_owner")
 
     def __str__(self):

@@ -8,13 +8,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django import forms
-
+from django.forms.widgets import SelectMultiple
 from .models import Bid, Category, Listing, User,Comment, WatchList
 
 
 def index(request):
+    categories= Category.objects.all()
     return render(request, "auctions/index.html",{
-        "listings":Listing.objects.filter(Auction_closed=False)
+        "listings":Listing.objects.filter(Auction_closed=False),
+        "categories":categories,
     })
 
 
@@ -76,7 +78,7 @@ def register(request):
         return render(request, "auctions/register.html")
 
 class CommentForm(forms.Form):
-        Leave_a_comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'What are your thoughts?','class': 'form-control', 'style': 'width:905px; margin-bottom:20px;',  'height':'100px'}))
+        Leave_a_comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Any complaints? Drop a review','class': 'form-control', 'style': 'width:905px; margin-bottom:20px;',  'height':'100px','rows':'2'}))
 
 
 def listing_details(request,listing):
@@ -104,7 +106,7 @@ def listing_details(request,listing):
         "form":BidForm(),
         "topBid":top_bid,
         "topBidowner":top_bid_owner,
-        "form2":CommentForm(),
+        "comment_form":CommentForm(),
         "comments":comments,
         "closed":closed,
         "watchlist": user_watchlist
@@ -183,9 +185,9 @@ TYPES = (
 class ListingForm(forms.Form):
     Item_Name = forms.CharField(widget=forms.TextInput(attrs={ 'style': 'width: 300px; margin:20px;', }))
     Image= forms.ImageField()
-    Alt_Text = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Description of your image', 'style': 'width: 300px; margin:20px;', }))
-    Category = forms.MultipleChoiceField( choices=TYPES)
-    Description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Short description of your listing', 'style': 'width: 300px; margin-bottom:20px;', }))
+    Alt_Text = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Description of your image', 'style': 'width: 300px;', }))
+    Category = forms.MultipleChoiceField( choices=TYPES,widget=SelectMultiple(attrs={'style': 'margin-bottom:5px;'}))
+    Description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Short description of your listing', 'style': 'width: 300px; margin-top:10px; margin-bottom:20px;','rows':'2' }))
     Starting_Price = forms.IntegerField()
 
 

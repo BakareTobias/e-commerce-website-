@@ -19,10 +19,10 @@
                 <div class="text" >
                     {{ listing.Description }} 
                     <hr>
-                    <div id="SP" > <u>Starting price</u>  <br> <h5 class="price"> ${{ listing.Starting_price}} </h5> 
+                    <div id="starting_price" > <u>Starting price</u>  <br> <h5 class="price"> ${{ listing.Starting_price}} </h5> 
                     </div>
                     
-                    <div id="TB"  > 
+                    <div id="top_bid"  > 
                         <u>Top Bid</u> <br>
                         <div style="float: left;"><h5 class="price">${{ topBid }} </h5></div>
                         <div style="float:left; font-size: small; text-align: end; margin-top: 15px; margin-left: 5px;"> by {{topBidowner}}</div>    
@@ -56,15 +56,15 @@
             
                     </div>
                     {%else%}
-                    <h4> This listing is closed for auctioning <br> Item won by {{topBidowner}} for ${{ topBid }}  </h4>
+                    <h4> This listing is closed <br> Winner: {{topBidowner}} @ ${{ topBid }}  </h4>
                     {%endif%}
 
 
                 </div>
             </div>
         </div>
-        <div id="Categories">
-            Other listings in: <a href="{% url 'categories' listing.category.Category %}">{{listing.category}}</a> 
+        <div id="Categories"> <br>
+            View other listings in: <a href="{% url 'categories' listing.category.Category %}">{{listing.category}}</a> 
 
         </div>
         <hr>
@@ -73,7 +73,7 @@
         <div id="CommentSection">
             <form action="{% url 'leaveComment' listing.id %}" method="post" style="margin-left: 15px;">
                 {% csrf_token %}
-                {{ form2 }}
+                {{ comment_form }}
                 <input type="submit" value="Send Comment" class="submitButton  " style="margin-left: 780px;">
 
             </form>

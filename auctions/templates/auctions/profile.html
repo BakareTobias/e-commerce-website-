@@ -2,13 +2,10 @@
 
 
 {% block body %}
-<h4 class="xxx"><u>My Account</u> </h4>
-<h3 class="xxx">Hello {{buser.username}},</h3> 
-<!-- User id: 000{{user.id}} -->
+<div id="profile_header">
+    <h3 >Hello {{user.username}}</h3> 
+</div>{% comment %} i changed this from buser to use. not sure if i broke something  {% endcomment %}
 
-<div id="links">
-    <hr id="linksections">
-</div>
 
 <div id="LandB">
     
@@ -56,7 +53,7 @@
         
         <h4>Won Listings</h4>
         <p>Listings you have won will show here </p>
-        You have no closed listings
+        You haven't won any bids. Go bid on something!
     </div>
 </div>
      

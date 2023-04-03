@@ -1,23 +1,29 @@
 {% extends "auctions/layout.html" %}
-
+{% load static%}
 
 {% block body %}
     <div>
-        <div id="catchyPhrase">
-            <img src="media\images\auction-banner.gif" alt="vvvv" style="height:250px; width:100%;">
+        <div id="carousel">
+            <h4> Items of the Day! Get them now at 20% off </h4>
+            
         </div> 
         <div id="categories">
-
-        </div><hr>
+            Browse by Categories: 
+            {%for category in categories%}
+            <a href="{% url 'categories' category %}" id="category_each"> {{category}} </a> 
+            {%endfor%}
+        </div>
         
-        <div id="flexbox">
+        
+        <div id="products">
             {%for listing in listings%}
                 <div class="listings" >
-                    <div classes="images" >
-                        <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 230px; width: 200px;" >
-                        
-                    </div>
-                    <a href="{% url 'listing' listing.id %}">{{ listing.Item_Name }}</a>  <br> Starting price:${{ listing.Starting_price }} 
+
+                    <a href="{% url 'listing' listing.id %}" >
+                        <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " id="product_image" ><br>
+                        {{ listing.Item_Name }}
+                        <br> Starting price:${{ listing.Starting_price }} 
+                    </a>
                 </div>
                 
             {%empty%}
@@ -28,6 +34,9 @@
         
     
     </div>
-
-
+  
 {% endblock %}
+
+{% block script %}
+    <script src="{% static 'auctions/load_products.js' %}"></script>
+ {% endblock %}

@@ -4,91 +4,102 @@
 <html lang="en">
     <head>
         <title>{% block title %}Auctions{% endblock %}</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
-        <script src="{% static 'auctions/watchlist.js' %}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        {% block script %}
+        {% endblock %}
     </head>
-    <body>
-        <div>
-            <h3 id="logo">TOBIAS' AUCTION HOUSE!</h3>
-            <!-- <div>
-                {% if user.is_authenticated %}
-                    Signed in as <strong>{{ user.username }}</strong>.
-                {% else %}
-                    Not signed in.
-                {% endif %}
-            </div> -->
-            <div id="navBar">
-                <ul class="nav" >
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">Shop</a>
-                    </li>
-                    
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'profile' user.id %}">Account</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'createListing' %}">Create a Listing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>  
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}">Register</a>
-                        </li>
-                    {% endif %}
-                </ul>
+    <body style="background-color: #60606017;">
+        <nav class="navbar navbar-expand-lg bg-light navbar-light">
+            <div class="container-fluid">{% comment %} logo/also acts as home button {% endcomment %}
+            
+                <a class="navbar-brand" href="{% url 'index' %}"><img src="/media/images/logo.png" id='logo' class="d-inline-block align-text-middle">Auctions </a> 
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto" >
+                        
+                        
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'profile' user.id %}">Account</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'createListing' %}">Create a Listing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>  
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="container-fluid">
+            {% block body %}
+            {% endblock %}
+        </div>
+        
+        
+        <div class="p-5 h-10 bg bg-dark  text-white text-center position-relative">
+            <div class="container">
+                <p class="lead">Copyright &copy; Bakare Oluwatobiloba </p>
             </div>
         </div>
-        <br><hr style="margin-bottom: 0px; ">
-        {% block body %}
-        {% endblock %}
 
-        <div id="footer">
-            
+
+        
+
+
+
+
+        {% comment %} <div id="footer">
             <div>
-                <div id="contactMe">
-                    <h4> Contact Me</h4> 
-                    <p> Any questions? Interested in working with me? <br>
+                <div class='footertext'>
+                    <p> 
+                        <h4> Contact Me</h4>
+                        Any questions? Interested in working with me? <br>
                         Send a message to: 08120140153 <br>
                         Send an e-mail to: bakaretobiloba13@gmail.com
-                        
                     </p>
     
                 </div>
-                <div id="About">
+                <div  class='footertext'>
                     <h4>About this Project</h4>
                     <p>I built this website as a project for CS50's web programming course(top course. <br> Would definitely recommend for anyone interested in learning web dev.) </p>
     
                 </div>
-                <div id="sign">
+                <div  class='footertext'>
+                    
                     <h4> Languages Used</h4>
+                    <p>
                     <ul>
                         <li>HTML</li>
                         <li>CSS</li>
                         <li>Python(Django)</li>
                         <li>Vanilla Js</li>
                     </ul>
-                    
+                    </p>
     
-                </div>  
+                </div> 
                 
             </div>
-            
-            <div id="k">
-                <hr>
-                <p> Bakare Oluwatobiloba    .    2022 Nov</p>
-                
-            </div>
-            
-        </div>
+            <div id="name_at_bottom_of_website"> <hr> </div>
+        </div> {% endcomment %}
     </body>
 </html>
