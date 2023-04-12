@@ -1,10 +1,14 @@
-.text, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle, #category_each, #categories, #form_body, #form_header, #watchlist_header, #profile_header, #name_at_bottom_of_website, p, a, h4 {
+.text, #MyListings, #Categories, #PlaceBid, #listedBy, #productTitle, #category_each, #categories, #form_body, #form_header, #watchlist_header, #profile_header, p, a, h4 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 div h4 {
   font-weight: bold;
   font-size: 600;
+}
+
+section {
+  height: auto;
 }
 
 /* NAVBAR */
@@ -42,59 +46,9 @@ div h4 {
   background-color: rgba(112, 212, 235, 0.5882352941);
 }
 
-/* CAROUSEL IMAGES */
-#carousel {
-  margin-left: 30px;
-  margin-bottom: 150px;
-  height: 450px;
-  text-align: center;
-}
-
-.carousel_container {
-  height: 400px;
-  float: left;
-  width: 30%;
-  margin: 10px;
-}
-
-#carousel_image {
-  height: 340px;
-  width: 270px;
-}
-
 /* FOOTER */
 #footer {
-  width: 100%;
-  float: left;
-  height: 300px;
   background-color: #74d6ec;
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 5px;
-}
-
-.footertext {
-  float: left;
-  width: 30%;
-  padding: 5px;
-  margin: 5px;
-}
-
-#name_at_bottom_of_website {
-  font-size: smaller;
-  font-weight: bold;
-  width: 100%;
-  float: left;
-  position: relative;
-  height: 20px;
-  text-align: center;
-}
-
-#back_to_top {
-  height: 35px;
-  width: 35px;
-  background-color: rgba(255, 255, 255, 0);
 }
 
 /* CREATELISTING FORM */
@@ -125,31 +79,21 @@ div h4 {
 .submitButton {
   border-width: 0px;
   margin: 20px;
-  margin-left: 250px;
   background-color: #74d6ec;
   color: rgb(0, 0, 0);
 }
 
 /* INDEX PAGE */
 #categories {
-  font-size: 40px;
-  padding: 15px;
-  width: 100%;
-  height: 200px;
   background-color: #74d6ec;
-  flex-wrap: wrap;
 }
 
 #category_each {
   border-radius: 3px;
-  width: 100px;
-  font-size: large;
-  margin-left: 20px;
   color: #000000;
 }
 
 #products {
-  float: left;
   margin: 15px;
   display: flex;
   flex-wrap: wrap;
@@ -180,41 +124,6 @@ div h4 {
 }
 
 /* INDIVIDUAL LISTING */
-.floatingbox {
-  width: 800px;
-  height: 400px;
-  background-color: rgb(216, 211, 205);
-  margin-left: 100px;
-  padding: 10px;
-  border-radius: 20px;
-}
-
-#ListingDetails {
-  width: 100%;
-  height: 510px;
-  padding: 40px;
-}
-
-#image_placeholder {
-  position: absolute;
-  float: left;
-  width: 500px;
-  height: 500px;
-}
-
-#text_placeholder {
-  padding-top: 80px;
-  position: relative;
-  float: left;
-  top: -10px;
-  left: 500px;
-  width: 500px;
-  height: 500px;
-  margin: 10px;
-  margin-left: 0px;
-  padding: 40px;
-}
-
 #productTitle {
   font-size: 35px;
 }
@@ -261,7 +170,6 @@ div h4 {
 #CommentSection {
   padding: 40px;
   text-align: start;
-  width: 100%;
   align-self: center;
   height: auto;
 }
@@ -269,7 +177,6 @@ div h4 {
 #commentbox {
   height: -moz-fit-content;
   height: fit-content;
-  width: 950px;
   background-color: white;
   align-self: center;
   padding: 10px;

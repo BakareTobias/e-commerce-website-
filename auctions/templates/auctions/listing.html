@@ -8,11 +8,11 @@
     var watchlist = "{{watchlist}}"
  </script>
     <div>
-        <div id="ListingDetails">
-            <div id="image_placeholder">
-                <img src="/media/{{ listing.image }}" alt="{{ listing.caption }} " style="height: 500px; width: 500px;" >
+        <div  class="d-md-flex">
+            <div  class="m-5 p-5">
+                <img src="/media/{{ listing.image }}" alt="{{ listing.caption }} " class="" >
             </div>
-            <div id="text_placeholder">
+            <div>
                 <div  id="productTitle"> {{ listing.Item_Name }}  </div>
                 <h6 id="listedBy">Listed by {{listing.owner}}<a id="listedBy" href="{% url 'profile' listing.owner.id %}"> </a> </h6>
                 <hr> 
@@ -74,7 +74,7 @@
             <form action="{% url 'leaveComment' listing.id %}" method="post" style="margin-left: 15px;">
                 {% csrf_token %}
                 {{ comment_form }}
-                <input type="submit" value="Send Comment" class="submitButton  " style="margin-left: 780px;">
+                <input type="submit" value="Send Comment" class="submitButton  ">
 
             </form>
             <h3 >Comment Section</h3>

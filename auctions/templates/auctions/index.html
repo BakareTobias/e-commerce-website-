@@ -2,38 +2,89 @@
 {% load static%}
 
 {% block body %}
-    <div>
-        <div id="carousel">
-            <h4> Items of the Day! Get them now at 20% off </h4>
-            
-        </div> 
-        <div id="categories">
-            Browse by Categories: 
-            {%for category in categories%}
-            <a href="{% url 'categories' category %}" id="category_each"> {{category}} </a> 
-            {%endfor%}
-        </div>
-        
-        
-        <div id="products">
-            {%for listing in listings%}
-                <div class="listings" >
-
-                    <a href="{% url 'listing' listing.id %}" >
-                        <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " id="product_image" ><br>
-                        {{ listing.Item_Name }}
-                        <br> Starting price:${{ listing.Starting_price }} 
-                    </a>
+    <!-- SECTION1: CAROUSEL -->
+    <section id="1" class="p-5">
+        <div class="container">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner align-text-middle ">
+                  <div class="carousel-item active ">
+                    <div class="card-body text-center">
+                        <img src="media\images\fridge.jpg" class=" align-text-middle w-md-100 img-fluid w-50 w-sm-100 " alt="...">
+                        <h3 class="card-title fs-4">Product Name </h3>
+                        <h4 class="fs-6">Starting Price: $</h4>
+                    </div>
+                   
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card-body text-center">
+                        <img src="media\images\phone.jpg" class=" align-text-middle  w-md-100 img-fluid w-50 w-sm-100 " alt="...">
+                        <h3 class="card-title">Product Name </h3>
+                        <h4>Starting Price: $</h4>
+                    </div>                  
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card-body text-center ">
+                        <img src="media\images\shirt.jpg" class=" align-text-middle  w-md-100 img-fluid w-50 w-sm-100 " alt="...">
+                        <h3 class="card-title">Product Name </h3>
+                        <h4>Starting Price: $</h4>
+                    </div>                 
+                 </div>
                 </div>
-                
-            {%empty%}
-                All listings have been bought. Come back later
-            {%endfor%}
-
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                  <span class="carousel-control-next-icon bg-dark " aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
         </div>
+    </section>
+
+    <!-- SECTION 2: categories -->
+    <section id="2" class="p-3">
+        <div id="categories" class="container ">
+            <div class="d-sm-flex">
+                <div class="text-sm-start text-center p-sm-4">
+                    <h3 class="card-title">Browse by category</h3>
+                </div>
+                <div class="  p-4">
+                    {%for category in categories%}
+                        <a href="{% url 'categories' category %}" id="category_each" class="mx-2"> {{category}} </a> 
+                    {%endfor%}
+                </div>
+            </div>
+
+        </div>  
+    </section>    
+        
+    <!-- LISTINGS SECTION -->
+    <section id="3" class="p-5 ">
+        <div class="container">
+            <div id="products">
+                {%for listing in listings%}
+                    <div class="listings card text-center " >
+
+                        <a href="{% url 'listing' listing.id %}" >
+                            <img src="media/{{ listing.image }}" alt="{{ listing.caption }} " id="product_image" class="mb-3 img-fluid" ><br>
+                            {{ listing.Item_Name }}
+                            <br> Starting price:${{ listing.Starting_price }} 
+                        </a>
+                    </div>
+                    
+                {%empty%}
+                    All listings have been bought. Come back later
+                {%endfor%}
+
+            </div>
+        </div>
+
+    </section>
+        
+        
         
     
-    </div>
   
 {% endblock %}
 

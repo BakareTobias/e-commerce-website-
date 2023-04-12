@@ -5,6 +5,9 @@ $black: #000000;
 .text{ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;}
 p,a,h4{    @extend .text;}
 div {h4{font-weight: bold;font-size: 600;}}
+section{
+    height: auto;
+}
 
 /* NAVBAR */
 #logo{ height: 40px; width: 40px; margin: 10px;}
@@ -14,29 +17,22 @@ div {h4{font-weight: bold;font-size: 600;}}
 .nav-item{ height: max-content; width: max-content; margin-top:10px; font-size: small; border-radius: 10px; padding: 2px;}
 .nav-item:hover {background-color: #70d4eb96; }
 
-/* CAROUSEL IMAGES */
-#carousel{margin-left: 30px; margin-bottom: 150px; height: 450px; text-align: center;}
-.carousel_container{height:400px;float: left; width: 30%; margin:10px; }
-#carousel_image{height: 340px; width: 270px;}
-/* FOOTER */
-#footer{ width: 100%;  float: left;  height: 300px;  background-color:$freshBlue; padding-top: 30px;  padding-left: 20px; padding-right: 20px; padding-bottom: 5px;}
-.footertext{float: left; width:30%;padding: 5px; margin: 5px;}
-#name_at_bottom_of_website{@extend .text;font-size: smaller;font-weight: bold; width: 100%; float: left; position: relative; height: 20px;  text-align: center;}
-#back_to_top{height: 35px;width: 35px;background-color: #ffffff00;}
 
+/* FOOTER */
+#footer{background-color:$freshBlue; }
 
 /* CREATELISTING FORM */
 #form_header{@extend .text; padding: 10px; background-color: $freshBlue; }
 #form_body{ @extend .text; background-color: #60606017; padding: 10px;  }
 .form_label{float: left;} .form_field{ margin-left: 100px;}
 #form_field_container{width: 500px; height: 70px; margin: 10px;}
-.submitButton{ border-width: 0px; margin:20px ; margin-left: 250px; background-color: $freshBlue; color: rgb(0, 0, 0);}
+.submitButton{ border-width: 0px; margin:20px ;  background-color: $freshBlue; color: rgb(0, 0, 0);}
 
 
 /* INDEX PAGE */
-#categories{ @extend .text; font-size:40px; padding: 15px; width: 100%; height: 200px; background-color: #74d6ec; flex-wrap: wrap; }
-#category_each{ @extend .text;  border-radius: 3px ; width: 100px; font-size: large; margin-left: 20px; color: #000000;}
-#products{float: left; margin: 15px;  display: flex;  flex-wrap: wrap;}
+#categories{ @extend .text; background-color: #74d6ec;  }
+#category_each{ @extend .text;  border-radius: 3px ;  color: #000000;}
+#products{margin: 15px;  display: flex;  flex-wrap: wrap;}
 .listings {padding: 15px; margin: 20px; border-width: 5px; width:270px; height: 350px; border-radius: 10px; }
 .listings:hover{ box-shadow: 0 0 20px $freshBlue;}
 #product_image{height: 200px; width: 200px;}
@@ -44,11 +40,6 @@ div {h4{font-weight: bold;font-size: 600;}}
 
 
 /* INDIVIDUAL LISTING */
-.floatingbox{ width: 800px; height:400px ; background-color: rgb(216, 211, 205); margin-left: 100px; padding: 10px; border-radius: 20px;}
-#ListingDetails{ width: 100%; height:510px ; padding: 40px;}
-#image_placeholder{ position: absolute; float: left; width: 500px; height: 500px; }
-#text_placeholder{ padding-top: 80px; position: relative; float: left; top: -10px; left: 500px; width: 500px;
-    height: 500px; margin: 10px; margin-left: 0px; padding: 40px; }
 #productTitle{@extend .text; font-size: 35px;}
 #listedBy{ @extend .text; color: $black;}
 #starting_price{ width: 50%; float: left; margin-right:0px; text-align: center;}
@@ -58,8 +49,8 @@ div {h4{font-weight: bold;font-size: 600;}}
 #PlaceBid{  @extend .text; width: 400px; height:auto ; margin-left: 0;}
 #Watchlist{ background-color: $freshBlue; border-width: 0px; display: none;}
 #Categories{ margin: 20px;@extend .text; font-size: 30px; height: 200px;}
-#CommentSection{ padding: 40px; text-align: start; width: 100%; align-self: center; height: auto;}
-#commentbox{ height: fit-content; width: 950px; background-color: white; align-self: center; padding: 10px;
+#CommentSection{ padding: 40px; text-align: start;  align-self: center; height: auto;}
+#commentbox{ height: fit-content; background-color: white; align-self: center; padding: 10px;
     padding-left: 20px; margin-left: 15px; margin-bottom: 20px;}
 #userid{ width: 20ch; float: left; margin-right: 30px;}
 

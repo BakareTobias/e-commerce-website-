@@ -78,7 +78,7 @@ def register(request):
         return render(request, "auctions/register.html")
 
 class CommentForm(forms.Form):
-        Leave_a_comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Any complaints? Drop a review','class': 'form-control', 'style': 'width:905px; margin-bottom:20px;',  'height':'100px','rows':'2'}))
+        Leave_a_comment = forms.CharField(widget=forms.Textarea(attrs={'placeholder':'Any complaints? Drop a review','class': 'form-control','style': 'margin-bottom:20px;',  'height':'100px','rows':'2'}))
 
 
 def listing_details(request,listing):
@@ -183,11 +183,11 @@ TYPES = (
 )
 
 class ListingForm(forms.Form):
-    Item_Name = forms.CharField(widget=forms.TextInput(attrs={ 'style': 'width: 300px; margin:20px;', }))
+    Item_Name = forms.CharField(widget=forms.TextInput(attrs={ 'style': 'width: auto; margin:20px;', }))
     Image= forms.ImageField()
     Alt_Text = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Description of your image', 'style': 'width: 300px;', }))
     Category = forms.MultipleChoiceField( choices=TYPES,widget=SelectMultiple(attrs={'style': 'margin-bottom:5px;'}))
-    Description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Short description of your listing', 'style': 'width: 300px; margin-top:10px; margin-bottom:20px;','rows':'2' }))
+    Description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Short description of your listing', 'style': 'width: auto; margin-top:10px; margin-bottom:20px;','rows':'2' }))
     Starting_Price = forms.IntegerField()
 
 
