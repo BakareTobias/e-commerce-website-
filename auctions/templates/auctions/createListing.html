@@ -4,7 +4,7 @@
     <div id="form_header"> <h3 >Hey there,you want to list an item? <br><h4 >Just fill out the form below</h4></h3></div>
     
     <div id="form_body">
-        <form action="{% url 'createListing' %}" method="post" >
+        <form action="{% url 'createListing' %}" method="post" enctype="multipart/form-data" >
                 {% csrf_token %}
                 {% for field in form %}
                     <div id="form_field_container" >

@@ -33,16 +33,21 @@ document.addEventListener('DOMContentLoaded',function () {
             product_container.innerHTML = `<a >
             <img src="${product.images[1]}" alt="" id="product_image" ><br>
            ${product.title}
-            <br> Starting price:${product.price} 
+            <br> Starting price:$${product.price} 
         </a>`
         document.querySelector('#products').appendChild(product_container)
         
 
         })
 
+        var elements = document.querySelectorAll('#product_image');
+        elements.forEach(function(element) {
+            element.classList.add('mb-3','img-fluid',); //add class
+        });
+
         var elements = document.querySelectorAll('.listings');
         elements.forEach(function(element) {
-            element.classList.add('card','text-center',"ímg-fluid"); //add class
+            element.classList.add('card','text-center',); //add class
         });
 
 

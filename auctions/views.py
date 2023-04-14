@@ -188,15 +188,20 @@ class ListingForm(forms.Form):
     Alt_Text = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Description of your image', 'style': 'width: 300px;', }))
     Category = forms.MultipleChoiceField( choices=TYPES,widget=SelectMultiple(attrs={'style': 'margin-bottom:5px;'}))
     Description = forms.CharField(widget=forms.Textarea(attrs={'placeholder': 'Short description of your listing', 'style': 'width: auto; margin-top:10px; margin-bottom:20px;','rows':'2' }))
-    Starting_Price = forms.IntegerField()
+    Starting_Price = forms.IntegerField() 
 
-
+""" class ListingForm(forms.ModelForm):
+    Form for the image model
+    class Meta:
+        model = Listing
+        fields = ('Item_Name','Image','Alt_Text','Category','Description','Starting_Price')
+ """
 def createListing(request):
     if request.method == "POST":
         l = Listing()
         l.Item_Name = request.POST['Item_Name']
         l.owner =  User.objects.get(id=request.user.id) 
-        l.image = request.POST["Image"]
+        l.image = request.FILES["Image"]
         
         l.caption = request.POST['Alt_Text']
         l.category = Category.objects.get(Category= request.POST['Category'])
