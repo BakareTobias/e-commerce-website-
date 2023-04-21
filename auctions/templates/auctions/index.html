@@ -4,6 +4,7 @@
 {% block body %}
     <!-- SECTION1: CAROUSEL -->
     <section id="1" class="p-5">
+        
         <div class="container">
             <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner align-text-middle ">
@@ -71,8 +72,10 @@
                             {{ listing.Item_Name }}
                             <br> Starting price:${{ listing.Starting_price }} 
                         </a>
+                        
+                          
                     </div>
-                    
+                   
                 {%empty%}
                     All listings have been bought. Come back later
                 {%endfor%}

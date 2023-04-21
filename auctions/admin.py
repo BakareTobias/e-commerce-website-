@@ -1,6 +1,4 @@
-from xml.etree.ElementTree import Comment
 from django.contrib import admin
-
 from auctions.models import Bid, Category, Listing, User,Comment,WatchList
 
 # Register your models here.
