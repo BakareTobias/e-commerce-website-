@@ -52,7 +52,7 @@
                 </div>
                 <div class="  p-4">
                     {%for category in categories%}
-                        <a href="{% url 'categories' category %}" id="category_each" class="mx-2"> {{category}} </a> 
+                        <a href="{%url 'categories' category%}" id="category_each" class="mx-2">{{category}}</a> 
                     {%endfor%}
                 </div>
             </div>

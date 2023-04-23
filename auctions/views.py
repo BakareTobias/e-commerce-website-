@@ -152,6 +152,7 @@ def profile(request,id):
     })
 
 def categories(request,category_name):#category here is the category name
+    category_name = category_name.strip()
     category_id = Category.objects.get(Category=category_name).pk#gets the name of the category
     listings = Listing.objects.filter(category=category_id)#listings with said categoryid
     all_cats = Category.objects.all()
