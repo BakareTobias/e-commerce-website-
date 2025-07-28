@@ -35,6 +35,7 @@ A modern, responsive e-commerce platform built with Python framework Django.
 
 **Additional Tools:**
 - [Deployment - Render]
+- [API integration - MongoDB]
 
 ## 🖥️ Usage
 
