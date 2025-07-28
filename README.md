@@ -48,35 +48,6 @@ A modern, responsive e-commerce platform built with Python framework Django.
 3. **Process Orders**: View and manage customer orders
 
 
-## 📁 Project Structure
-
-```
-e-commerce-website/
-├── public/                 # Static files
-│   ├── images/            # Product images and assets
-│   ├── css/               # Stylesheets
-│   └── js/                # Client-side JavaScript
-├── src/                   # Source code
-│   ├── components/        # Reusable components
-│   ├── pages/            # Page components
-│   ├── utils/            # Utility functions
-│   ├── services/         # API services
-│   └── hooks/            # Custom hooks (if React)
-├── server/               # Backend code
-│   ├── controllers/      # Route controllers
-│   ├── models/           # Database models
-│   ├── routes/           # API routes
-│   ├── middleware/       # Custom middleware
-│   └── config/           # Configuration files
-├── tests/                # Test files
-├── docs/                 # Documentation
-├── .env.example          # Environment variables template
-├── package.json          # Dependencies and scripts
-└── README.md            # Project documentation
-```
-
-## 🔧 API Endpoints
-
 ## 🚀 Deployment
 
 ### Create a New Web Service on Render
@@ -121,6 +92,6 @@ Image unavailable
 
 ### Checkout Process
 Image unavailable
----
+
 
 ⭐ **Star this repository if you found it helpful!**
