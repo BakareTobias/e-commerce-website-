@@ -80,69 +80,48 @@ e-commerce-website/
 
 ## 🚀 Deployment
 
-### Deploy to Heroku
-1. Create a Heroku app
-2. Set environment variables in Heroku dashboard
-3. Deploy using Git:
-   ```bash
-   git add .
-   git commit -m "Deploy to Heroku"
-   git push heroku main
-   ```
+### Create a New Web Service on Render
 
-### Deploy to Vercel/Netlify
-1. Connect your GitHub repository to Vercel/Netlify
-2. Configure environment variables
-3. Deploy automatically on push to main branch
+Log in to Render Dashboard
 
-## 🤝 Contributing
+Go to dashboard.render.com
+Click "New +" button
+Select "Web Service"
 
-Contributions are welcome! Please follow these steps:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
+Connect Your Repository
 
-### Development Guidelines
-- Follow the existing code style
-- Write tests for new features
-- Update documentation as needed
-- Ensure all tests pass before submitting PR
+Choose "Build and deploy from a Git repository"
+Click "Connect" next to your GitHub account
+Find and select your e-commerce-website- repository
+Click "Connect"
 
-## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 📞 Contact
+Step 3: Configure Your Web Service
+Fill in the following details:
+Basic Settings:
 
-**Bakare Tobias**
-- GitHub: [@BakareTobias](https://github.com/BakareTobias)
-- Email: [your-email@example.com]
-- LinkedIn: [Your LinkedIn Profile]
+Name: ecommerce-website (or your preferred name)
+Region: Choose closest to your users (e.g., Oregon, Frankfurt)
+Branch: main (or your default branch)
 
-## 🙏 Acknowledgments
 
-- [List any resources, tutorials, or inspirations]
-- [Thank contributors or mentors]
-- [Credit any third-party assets or libraries]
 
 ## 📸 Screenshots
 
-### Homepage
-![Homepage](screenshots/homepage.png)
+### Login
+![WhatsApp Image 2025-07-28 at 21 48 51_0176e27f](https://github.com/user-attachments/assets/06941fd0-b667-42b5-ba8e-8a674ca74f9b)
 
-### Product Catalog
-![Product Catalog](screenshots/products.png)
+### Homepage
+![WhatsApp Image 2025-07-28 at 21 48 05_737cdcd4](https://github.com/user-attachments/assets/32dcdf0b-f996-4fc5-929f-07803e707736)
+
 
 ### Shopping Cart
-![Shopping Cart](screenshots/cart.png)
+Image unavailable
 
 ### Checkout Process
-![Checkout](screenshots/checkout.png)
-
+Image unavailable
 ---
 
 ⭐ **Star this repository if you found it helpful!**
