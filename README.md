@@ -1,7 +1,6 @@
 # E-Commerce Website
 
-A modern, responsive e-commerce platform built with [insert your tech stack here]. 
-This application provides a complete online shopping experience with user authentication, product management, shopping cart functionality, and secure payment processing.
+A modern, responsive e-commerce platform built with Python framework Django. 
 
 ## 🌟 Features
 
@@ -10,13 +9,13 @@ This application provides a complete online shopping experience with user authen
 - **User Authentication**: Secure user registration, login, and profile management
 - **Shopping Cart**: Add, remove, and manage products in the cart
 - **Order Management**: Complete order processing and order history tracking
-- **Responsive Design**: Fully responsive across desktop, tablet, and mobile devices
+- **Responsive Design**: Responsive across desktop, tablet, and mobile devices
 
 ### User Features
-- User registration and authentication
+- User registration and login
 - Product search and filtering
 - Product categories and sorting
-- User profile and account management
+- User profile 
 - Product reviews
 
 ### Admin Features
